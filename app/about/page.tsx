@@ -1,33 +1,8 @@
 import Link from "next/link";
 
-interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
-
-async function getPosts(): Promise<Post[]> {
-  try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3');
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch posts');
-    }
-
-    return response.json();
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    return [];
-  }
-}
-
-export default async function Home() {
-  // Fetch data at build time (static generation)
-  const posts = await getPosts();
-
+export default function About() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br">
       <div className="container mx-auto px-4 py-16">
         {/* Navigation */}
         <nav className="mb-12 flex justify-center gap-6">
@@ -47,7 +22,7 @@ export default async function Home() {
 
         <div className="max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold mb-8 text-zinc-900 dark:text-zinc-100">
-            Welcome page
+            About Us
           </h1>
           <div className="bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-8 border border-zinc-200 dark:border-zinc-700">
             <p className="text-lg text-zinc-700 dark:text-zinc-300 mb-4">
@@ -65,3 +40,4 @@ export default async function Home() {
     </div>
   );
 }
+

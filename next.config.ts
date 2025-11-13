@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  distDir: 'build',
+  trailingSlash: false,
+  assetPrefix: process.env.NODE_ENV === 'production' ? './' : undefined,
 };
 
 export default nextConfig;
