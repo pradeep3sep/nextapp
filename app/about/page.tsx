@@ -13,7 +13,7 @@ export default function About() {
             Home
           </Link>
           <Link
-            href="./about.html"
+            href="/about"
             className="px-4 py-2 rounded-lg"
           >
             About
